@@ -1,0 +1,32 @@
+baseURL = 'https://docs.marginalia.nu/'
+languageCode = 'en-us'
+title = 'Marginalia Search Engine Documentation (WORK IN PROGRESS)'
+theme = 'hugo-theme-techdoc'
+[params]
+  subtitle = ''
+  menu_style = "open-menu" # "open-menu" or "slide-menu" or "" blank is as no sidebar
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[menu]
+    [[menu.main]]
+        name = "Documentation"
+        url = "/"
+        weight = 1
+        identifier = 'docs'
+        pre = "<i class='fa fa-home'></i>&nbsp;"
+
+    [[menu.main]]
+        name = "Sources"
+        url = "https://git.marginalia.nu/"
+        weight = 2
+        identifier = 'git'
+        pre = "<i class='fa-brands fa-git'></i>&nbsp;"
+
+    [[menu.main]]
+        name = "Marginalia Search Engine"
+        url = "https://search.marginalia.nu/"
+        weight = 2
+        identifier = 'search'
+        pre = "<i class='fa-brands fa-searchengin'></i>&nbsp;"

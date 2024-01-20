@@ -17,13 +17,21 @@ theme = 'hugo-theme-techdoc'
         identifier = 'docs'
 
     [[menu.main]]
-        name = "Sources"
+        name = "Search Engine Sources"
         url = "https://git.marginalia.nu/"
         weight = 3
         identifier = 'git'
 
+
+    [[menu.main]]
+        name = "Documentation Sources"
+        url = "https://github.com/MarginaliaSearch/docs.marginalia.nu"
+        weight = 2
+        identifier = 'git'
+
+
     [[menu.main]]
         name = "Marginalia Search Engine"
         url = "https://search.marginalia.nu/"
-        weight = 2
+        weight = 4
         identifier = 'instance'

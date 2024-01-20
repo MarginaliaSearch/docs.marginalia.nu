@@ -15,18 +15,15 @@ theme = 'hugo-theme-techdoc'
         url = "/"
         weight = 1
         identifier = 'docs'
-        pre = "<i class='fa fa-home'></i>&nbsp;"
 
     [[menu.main]]
         name = "Sources"
         url = "https://git.marginalia.nu/"
-        weight = 2
+        weight = 3
         identifier = 'git'
-        pre = "<i class='fa-brands fa-git'></i>&nbsp;"
 
     [[menu.main]]
         name = "Marginalia Search Engine"
         url = "https://search.marginalia.nu/"
         weight = 2
-        identifier = 'search'
-        pre = "<i class='fa-brands fa-searchengin'></i>&nbsp;"
+        identifier = 'instance'

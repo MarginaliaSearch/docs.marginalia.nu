@@ -1,6 +1,6 @@
 baseURL = 'https://docs.marginalia.nu/'
 languageCode = 'en-us'
-title = 'Marginalia Search Engine Documentation (WORK IN PROGRESS)'
+title = 'Marginalia Search Engine Software Documentation (WORK IN PROGRESS)'
 theme = 'hugo-theme-techdoc'
 [params]
   subtitle = ''
@@ -11,7 +11,7 @@ theme = 'hugo-theme-techdoc'
 
 [menu]
     [[menu.main]]
-        name = "Documentation"
+        name = "Home"
         url = "/"
         weight = 1
         identifier = 'docs'
@@ -20,14 +20,14 @@ theme = 'hugo-theme-techdoc'
         name = "Search Engine Sources"
         url = "https://git.marginalia.nu/"
         weight = 3
-        identifier = 'git'
+        identifier = 'se-git'
 
 
     [[menu.main]]
         name = "Documentation Sources"
         url = "https://github.com/MarginaliaSearch/docs.marginalia.nu"
         weight = 2
-        identifier = 'git'
+        identifier = 'doc-git'
 
 
     [[menu.main]]

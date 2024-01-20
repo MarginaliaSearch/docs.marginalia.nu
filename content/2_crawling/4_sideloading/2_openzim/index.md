@@ -1,5 +1,5 @@
 ---
-title: '2.4.2 - Sideloading OpenZIM'
+title: '2.4.2 - OpenZIM'
 ---
 
 Wikipedia is the archetype of a website that is too large to crawl.  Thankfully, they provide dumps of their data in a format called ZIM.  This is a format that is optimized for offline use, and is used by the Kiwix project to provide offline access to Wikipedia.  Wikipedia's zim files are available for download at https://download.kiwix.org/zim/wikipedia/

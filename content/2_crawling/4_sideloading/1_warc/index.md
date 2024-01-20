@@ -1,5 +1,5 @@
 ---
-title: '2.4.1 - Sideloading WARCs'
+title: '2.4.1 - WARCs'
 ---
 
 

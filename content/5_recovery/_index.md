@@ -1,5 +1,5 @@
 ---
-title: '3. Recovery'
+title: '5. Recovery'
 ---
 
 The system is designed to be resilient to failure, not through redundant hrardware, but through redundant data.  

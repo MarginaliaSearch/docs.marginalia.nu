@@ -15,6 +15,8 @@ Select the crawl data you want, and press `[Trigger Recrawl]`.
     <figcaption>Recrawl Dialog</figcaption>
 </figure>
 
-Crawling will proceed as before, but this time, the crawler will try to fetch only the data that has changed since the last crawl, increasing the number of documents by a percentage.  This will typically be much faster than the initial crawl.  
+Crawling will proceed as before, but this time, the crawler will try to fetch only the data that has changed since the last crawl, increasing the number of documents by a percentage.  This will typically be much faster than the initial crawl.
 
 The recrawl will update the set of crawl data it was based on, so that the next recrawl will be based on the latest data.  This means that the first recrawl will be a full crawl, but subsequent recrawls will be incremental.
+
+**Warning** If you download sample data into the system, these domains will also be included in the re-crawl.  This is a strongly undesirable state, and there is no means of restoring the data contamination.

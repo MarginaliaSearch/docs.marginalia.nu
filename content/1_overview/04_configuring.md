@@ -34,6 +34,8 @@ Of principal importance when configuring the system is `conf/properties/system.p
 | flag        | values     | description                          |
 |-------------|------------|--------------------------------------|
 | flyway.disable | boolean | Disables automatic Flyway database migrations |
+| log4j2.configurationFile | string | log4j2-test.xml, log4j2-prod.xml |
+
 
 ### Crawler Properties
 

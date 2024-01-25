@@ -31,7 +31,11 @@ Finally, you can install the search engine.  To do this, a script is provided th
 $ ./run/install.sh /path/to/install
 ```
 
-You will be prompted for a few things.  First, you will be asked whether to create a barebones deployment, or a marginalia search like install.  The former is for running a general purpose search engine, the latter is for running a mirror of the Marginalia Search Engine (e.g. for development tasks).
+You will be prompted for a few things.  First, you will be asked whether to create a barebones 1-node deployment, a barebones 2-node deployment, or a marginalia search like install.
+
+The barebones variants are for running a general purpose search engine, the latter is for running a mirror of the Marginalia Search Engine (e.g. for development tasks).
+
+If you plan on mixing sideloaded and crawled content, a 2-node deployment is recommended.  You can add additional nodes later, but this is a bit involved.
 
 Next you will be asked to create a mariadb user and password.  This is used for the database that stores the supplemental data for the search engines.  
 

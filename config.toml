@@ -1,6 +1,6 @@
 baseURL = 'https://docs.marginalia.nu/'
 languageCode = 'en-us'
-title = 'Marginalia Search Engine Software Documentation (WORK IN PROGRESS)'
+title = 'Marginalia Search Engine Software Documentation'
 theme = 'hugo-theme-techdoc'
 [params]
   subtitle = ''

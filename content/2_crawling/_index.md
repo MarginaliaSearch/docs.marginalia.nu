@@ -14,7 +14,7 @@ Subsequent runs can be configured to only fetch documents that have been updated
 
 After the crawl is complete, the documents need to be processed and indexed.  After this the search engine is ready to serve queries.
 
-Documents can also be sideloaded from other sources, such as a WARC file, a Wikipedia dump, from stackexchange data, etc.  This is useful as these sources are generally very large, and difficult to crawl. 
+Documents can also be sideloaded from other sources, such as a WARC file, a Wikipedia dump, from stackexchange data, etc.  This is useful as these sources are generally very large, and difficult to crawl.  This is also useful if you have largely static data, or want to do your own crawling using some other tool set.
 
 ## Important disclaimer about web crawling
 

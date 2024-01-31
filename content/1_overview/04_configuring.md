@@ -61,3 +61,14 @@ Of principal importance when configuring the system is `conf/properties/system.p
 | flag                      | values     | description                                                   |
 |---------------------------|------------|---------------------------------------------------------------|
 | control.hideMarginaliaApp | boolean | Hides the Marginalia application from the control GUI (used in barebones mode) |
+
+
+### Experimental Flags (DANGER!)
+
+These flags are provisional and may have unintended side-effects.  These are subject to change, migration paths are not 
+guaranteed. 
+
+| flag | values  | description                                                                                                                                                                          
+|--|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|system.languageDetectionModelVersion| integer | Choose language detection model. -1 to disable, 0 for default; 1 or 2 to select model between the old crude model and fasttext (which despite its name is slower but more accurate). |
+|system.noFlattenUnicode| boolean | if true, the search engine will attempt to support utf-8 keywords.  The index needs to be re-constructed after this has been switched.  Probably also needs new language models.     |

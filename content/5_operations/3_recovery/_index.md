@@ -2,7 +2,7 @@
 title: '5.3 Recovery'
 ---
 
-The system is designed to be resilient to failure, not through redundant hrardware, but through redundant data.  
+The system is designed to be resilient to failure, not through redundant hardware, but through redundant data.  
 
 Data flows in a circular pattern.  Crawl data becomes processed data, which is loaded into the mariadb database and index; from which new crawl data can be generated.  This mean that if at least one of the three points of failure
 survives (the crawl data, the processed data, or the db+index), the system can be recovered via normal system operations.

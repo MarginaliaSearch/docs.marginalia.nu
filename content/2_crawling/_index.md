@@ -4,8 +4,6 @@ title: '2. Crawling and Loading'
 
 This section pertains to basic operations of the search engine.  It will explain how to run a crawl, and other ways to load data into the system.
 
-## What is a crawler?
-
 An internet crawler (or spider) is a piece of software that traverses the internet, and downloads pages as it encounters them.  This is the basis for all internet search engines.  
 
 During the first run, the crawler needs to be seeded with a list of domains.  A freshly installed search engine does not know anything about the world, and needs to be told which domains exist.  Such a crawl will fetch every document it encounters. 

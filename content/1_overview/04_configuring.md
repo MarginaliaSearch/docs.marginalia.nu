@@ -22,20 +22,43 @@ index-2/backup|Index backups for index node 2
 index-2/index|Index data for index node 2
 ...|...
 
-For a production-like deployment, you will probably want to move the db and index directories to a separate storage device.  The `index-n/storage` directory wants as much space as can be afforded, and `index-n/index` wants an SSD. 
+For a production-like deployment, you will probably want to move the db and index directories to a separate storage device.  The `index-n/storage` directory wants as much space as can be afforded, and `index-n/index` wants an SSD.
 
+## Recommended Tweaks for small hardware
 
-## `system.properties`
+If you intend to run the system on a machine with limited RAM, especially on a relatively high-powered CPU with many
+cores, some configuration changes are recommended.
+
+Add `system.conserveRam = true` to `conf/properties/system.properties`. This will make the system use additional memory conservation strategies where available,
+at the expense of disk I/O and speed.
+
+Next, edit env/service.env and add 
+
+`-Djava.util.concurrent.ForkJoinPool.common.parallelism=4` 
+
+to `CONVERTER_PROCESS_OPTS`, and `LOADER_PROCESS_OPTS`.  This will reduce the number of cores
+the processing jobs use, which has a large impact on RAM since each of them allocates a fair
+bit of memory.
+
+It should look something like this:
+```
+CONVERTER_PROCESS_OPTS="-Dservice-name=converter -Dservice-host=0.0.0.0  -Djava.util.concurrent.ForkJoinPool.common.parallelism=4"
+CRAWLER_PROCESS_OPTS="-Dservice-name=crawler -Dservice-host=0.0.0.0  -Djava.util.concurrent.ForkJoinPool.common.parallelism=4"
+LOADER_PROCESS_OPTS="-Dservice-name=loader -Dservice-host=0.0.0.0"
+INDEX_CONSTRUCTION_PROCESS_OPTS="-Dservice-name=index-constructor -Djava.util.concurrent.ForkJoinPool.common.parallelism=4"
+```
+
+## `system.properties` overview
 
 Of principal importance when configuring the system is `conf/properties/system.properties`, which is the main configuration file for the search engine.  It contains the following properties:
 
 ### Global
 
-| flag        | values     | description                          |
-|-------------|------------|--------------------------------------|
-| flyway.disable | boolean | Disables automatic Flyway database migrations |
+| flag                     | values     | description                          |
+|--------------------------|------------|--------------------------------------|
+| flyway.disable           | boolean | Disables automatic Flyway database migrations |
 | log4j2.configurationFile | string | log4j2-test.xml, log4j2-prod.xml |
-
+| system.conserveMemory    | boolean | Apply extra effort to conserve RAM. Useful on low-powered hardware |
 
 ### Crawler Properties
 
@@ -65,10 +88,11 @@ Of principal importance when configuring the system is `conf/properties/system.p
 
 ### Experimental Flags (DANGER!)
 
-These flags are provisional and may have unintended side-effects.  These are subject to change, migration paths are not 
+These flags are provisional and may have unintended side effects.  These are subject to change, migration paths are not 
 guaranteed. 
 
 | flag | values  | description                                                                                                                                                                          
 |--|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|system.noSunMiscUnsafe| boolean | Disable the use of sun.misc.Unsafe, use MemorySegment instead.  This is slower but has better memory safety |
 |system.languageDetectionModelVersion| integer | Choose language detection model. -1 to disable, 0 for default; 1 or 2 to select model between the old crude model and fasttext (which despite its name is slower but more accurate). |
 |system.noFlattenUnicode| boolean | if true, the search engine will attempt to support utf-8 keywords.  The index needs to be re-constructed after this has been switched.  Probably also needs new language models.     |

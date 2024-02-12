@@ -34,11 +34,11 @@ In `conf/properties/system.properties`:
 * Add `system.conserveMemory = true`. This will make the system use additional memory 
 conservation strategies where available, at the expense of disk I/O and speed.
 
-* If you have a CPU with 16+ cores, set `converter.poolSize` to something smaller, maybe 8 or 16.  This property configures the number of threads used by the converter process, which indirectly increases the amount of RAM it 
-requires.  The default value assumes a fair bit of RAM. It should be
-  lower than the number of logical cores in your CPU.
+* Optionally, you might want to tweak `converter.poolSize`.  The default is automatically reduced by `system.conserveMemory`, 
+ and affects the number  of threads used by the converter process in turn increasing RAM requirements.  It should be in the range between 1 and
+  the number of logical cores in your CPU.  If set lower than necessary processing will take longer time.
 
-* You might also want to lower `converter.sideloadThreshold` to something smaller, maybe down to 1000.  This will make the 
+* You might also want to lower `converter.sideloadThreshold` to something smaller than the default 10,000 -- maybe down to 1000.  This will make the 
 converter perform a simpler processing operation on domains with more than this number of documents.   It's 
 generally a fair bit slower, but drastically reduces the amount of RAM required.
 

@@ -31,7 +31,7 @@ cores, some configuration changes are recommended.
 
 In `conf/properties/system.properties`:
 
-* Add `system.conserveRam = true`. This will make the system use additional memory 
+* Add `system.conserveMemory = true`. This will make the system use additional memory 
 conservation strategies where available, at the expense of disk I/O and speed.
 
 * If you have a CPU with 16+ cores, set `converter.poolSize` to something smaller, maybe 8 or 16.  This property configures the number of threads used by the converter process, which indirectly increases the amount of RAM it 

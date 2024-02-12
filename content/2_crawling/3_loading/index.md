@@ -5,7 +5,7 @@ published: '2024-01-16'
 
 Once the crawl is done, the data needs to be processed before its searchable.  This process extracts keywords and features from the documents, and converts them into a format that can be loaded into the search engine.
 
-This is done by going to `Nodes->Node 1->Actions->Process Crawl Data`.
+This is done by going to `Nodes->Node N->Actions->Process Crawl Data`.
 
 <figure>
 <img src="process_data_dialog.png">
@@ -13,7 +13,7 @@ This is done by going to `Nodes->Node 1->Actions->Process Crawl Data`.
 </figure>
 
 This will start the conversion process.  This will again take a while, depending on the size of the crawl. 
-The process bar will show the progress.  Depending on whether you select `Load Automatically`, the data will be loaded into the search engine.  If you don't select this, you can load the data later by going to `Nodes->Node 1->Actions->Load Processed Data`.
+The process bar will show the progress.  Depending on whether you select `Load Automatically`, the data will be loaded into the search engine.  If you don't select this, you can load the data later by going to `Nodes->Node N->Actions->Load Processed Data`.
 
 Manual loading is useful both for debugging, and if you wish to load multiple sources of data into the same index, such as
 when sideloading data from other sources like WARC files or a Wikipeida dump.  

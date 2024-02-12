@@ -7,7 +7,7 @@ Wikipedia is the archetype of a website that is too large to crawl.  Thankfully,
 Since the search engine doesn't process images, we can use the smaller "no images" version of the dump, `wikipedia_en_all_nopic_YYYY-MM.zim`.  This is still a very large file, and will take up to a day to to process even on a relatively powerful machine.  For testing, you can use e.g. the `wikipedia_en_100_nopic_YYYY-MM.zim` version, which is just 100 articles.
 
 To process the data, place a ZIM file in the Uploads directory.  
-Go to `Node 1 -> Actions -> Sideload Encyclopedia`, and select your zim file from the list of available files.
+Go to `Node N -> Actions -> Sideload Encyclopedia`, and select your zim file from the list of available files.
 
 <figure>
     <img src="upload-form.webp">

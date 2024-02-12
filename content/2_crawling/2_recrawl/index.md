@@ -6,7 +6,7 @@ published: '2024-01-16'
 The work flow with a crawl spec was a one-off process to bootstrap the search engine.  To keep the search engine up to date,
 it is preferable to do a recrawl.  This will try to reduce the amount of data that needs to be fetched.
 
-To trigger a Recrawl, go to `Nodes->Node 1->Actions->Re-crawl`.  This will bring you to a page that looks similar to the 'new crawl page', where you can select a set of existing crawl data to use as a source.  
+To trigger a Recrawl, go to `Nodes->Node N->Actions->Re-crawl`.  This will bring you to a page that looks similar to the 'new crawl page', where you can select a set of existing crawl data to use as a source.  
 
 Select the crawl data you want, and press `[Trigger Recrawl]`. 
 

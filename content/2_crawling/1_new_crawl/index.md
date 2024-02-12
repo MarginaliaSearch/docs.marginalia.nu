@@ -10,7 +10,7 @@ While a running search engine can use the link database to figure out which webs
 system does not know of any links.  To bootstrap a crawl, a crawl specification needs to be created to 
 seed the domain database.
 
-Go to `Nodes->Node 1->Actions->New Crawl`, and you should see a page like this:
+Go to `Nodes->Node N->Actions->New Crawl`, and you should see a page like this:
 
 <figure>
     <img src="new_crawl.png">
@@ -33,7 +33,7 @@ Fill out the form with a description and a link to a domain list.  The domain li
 You can use github raw links for this purpose.  For test purposes, you can use this link: `https://downloads.marginalia.nu/domain-list-test.txt`, which will create a crawl for a few
 of marignalia.nu's subdomains.
 
-If you aren't redirected there automatically, go back to the `New Crawl` page under Node 1 -> Actions.  Your new specification should now be listed.  
+If you aren't redirected there automatically, go back to the `New Crawl` page under Node N -> Actions.  Your new specification should now be listed.  
 
 Check the box next to it, and click `[Trigger New Crawl]`.
 

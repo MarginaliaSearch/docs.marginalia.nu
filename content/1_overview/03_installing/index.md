@@ -45,6 +45,11 @@ The search engine will take a moment to start up, and you can check the logs wit
 
 Once started, you can access a basic search interface at [http://localhost:8080/](http://localhost:8080/).  This is a barebones search interface, and is not intended for general use.  It is primarily for testing purposes.  The search engine is designed to be used over REST, and the search interface is just a thin wrapper around that.  
 
+<figure>
+    <img src="./qs.png">
+    <figcaption>This view should greet you upon visiting port 8080</figcaption>
+</figure>
+
 You also have access to a control interface at [http://localhost:8081/](http://localhost:8081/).  This is where the search engine is configured and operated. 
 
 <figure>

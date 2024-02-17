@@ -38,7 +38,10 @@ The **Algorithm** choice lets you choose which ranking algorithm to use:
 * Adjacency CheiRank - This is a Marginalia Search specific algorithm that is similar to the Link CheiRank algorithm, but
   it uses a different graph. 
 
-In practice you probably want to use the Link PageRank algorithm, as it is the most well-known, and the most well-tested.
+In practice, you probably want to use the Link PageRank algorithm, as it is the most well-known, and the most well-tested.
+
+(IMPORTANT UPGRADE NOTE:  In future releases, the manual selection of Algorithm will go away.  The choice of algorithm will be made
+automatically based on whether you have provided a definition, and based on whether an adjacency graph has been calculated)
 
 The **Depth** parameter controls the size of the result set.  Any domains not in the top N will be excluded from the ranking set.
 

@@ -56,3 +56,5 @@ You also have access to a control interface at [http://localhost:8081/](http://l
     <img src="./control-view.webp">
     <figcaption>This control view should greet you upon visiting port 8081</figcaption>
 </figure>
+
+**NOTE**:  On first start-up, the control service will spawn first and then perform database migrations, then the other services will start.  There is a rare race condition bug that sometimes occurs on first start-up causing only the control-service to fully launch.  If you aren't able to access the system at port 8080 within a several minutes, but port 8081 is fine, stop the system and re-start it.  This issue only happens at the first start of the system.

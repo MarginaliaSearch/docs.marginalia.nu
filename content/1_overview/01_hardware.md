@@ -3,7 +3,7 @@ title: '1.1 Hardware and Configuration'
 published: '2024-01-16'
 ---
 
-The Marginalia Search Engine is designed to be run on a single server.  The server should have at least 16GB of RAM, and at least 4 cores.  It is designed to run on physical hardware, and will likely be very expensive to run in the cloud.
+The Marginalia Search Engine is designed to be run on a single server.  The server should be an x86-64 machine, have at least 16GB of RAM, and at least 4 cores.  It is designed to run on physical hardware, and will likely be very expensive to run in the cloud.
 
 Overall the system is designed to be run on a single server, but it is possible to run the index nodes on separate servers.  This will likely require a bit of configuration, and is not recommended for most users.  
 

@@ -31,11 +31,11 @@ Finally, you can install the search engine.  To do this, a script is provided th
 $ ./run/install.sh /path/to/install
 ```
 
-You will be prompted for a few things.  First, you will be asked whether to create a barebones 1-node deployment, a barebones 2-node deployment, a marginalia search like install, or a local install. 
+You will be prompted for a few things.  First, you will be asked whether to create a barebones 1-node deployment, a barebones 2-node deployment, a marginalia search like install, or a non-docker install. 
 
 * The barebones variants are for running a general purpose search engine
 * The full install is for running a mirror of the Marginalia Search Engine (e.g. for development tasks). 
-* The local install mode is *experimental*, and will set up what you need for running the system outside of docker.
+* The non-dockder install mode is *experimental*, and will set up what you need for running the system outside of docker.  The installer will produce a README in the install directory with the remaining setup steps.
 
 If you plan on mixing sideloaded and crawled content, a 2-node deployment is recommended.  You can add additional nodes later, but this is a bit involved and requires modifying the docker files.
 

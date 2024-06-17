@@ -78,6 +78,8 @@ You may see a *502 Bad Gateway*-style error up to a minute after everything is s
 
 If you install the system from docker, start it, and then try to install it someplace else, the original docker configuration will block the installation and this prevents the new installation from starting.  The associated containers and volumes and networks from the initial install needs to be removed first.
 
+It should on paper be enough to do a `docker-compose down -v` from the old install directory, but some combination of `docker container prune`, `docker volume prune`, `docker network prune` may also be necessary;  these commands remove unused docker objects system-wide, be sure you understand what they do!
+
 ## Can't access the system
 
 By default, the docker installations bind to localhost.  This means the system is only accessible from the same IP as the machine it's installed on.  

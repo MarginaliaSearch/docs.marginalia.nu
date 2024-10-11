@@ -5,42 +5,36 @@ published: '2024-01-16'
 
 NOTE: Please be sure to read the [crawling disclaimer](/2_crawling/#important-disclaimer-about-web-crawling) before proceeding.
 
+## Bootstrapping the domain database
 
 While a running search engine can use the link database to figure out which websites to visit, a clean
-system does not know of any links.  To bootstrap a crawl, a crawl specification needs to be created to 
-seed the domain database.
+system does not know of any links, so you must add a few domains yourself.  To do this, either follow the
+link in the New Crawl GUI, or use the top menu and select `Domains->Add Domains`
 
-Go to `Nodes->Node N->Actions->New Crawl`, and you should see a page like this:
+<figure>
+    <img src="add_domains.png">
+    <figcaption>
+       Adding new known domains to the system.
+    </figcaption>
+</figure>
+
+Fill out the form by adding a list of domains to seed the search engine with.  You also have the option to select a node affinity for the domains, which index node will be assigned to the domains, but if you leave it at the default value, the next index node to crawl will be assigned, which is typically what you want.
+
+## Starting a crawl
+
+To start a new crawl, go to `Nodes->Node N->Actions->New Crawl`, and you should see a page like this:
 
 <figure>
     <img src="new_crawl.png">
     <figcaption>
-        With no crawls in the system, the only option is to create a new crawl.
+        The New Crawl view.
     </figcaption>
 </figure>
 
-Click the link that says 'New Spec' to arrive at a form for creating a new specification:
+If you have already performed a crawl on the index node, you have the option to re-use that crawl data to reduce the number of
+network requests sent, and build upon it to fetch more documents.  If it's a clean system, you have only the option to start fresh.
 
-<figure>
-    <img src="new_spec.png">
-    <figcaption>
-        Form for creating a new crawl specification.
-    </figcaption>
-</figure>
-
-Fill out the form with a description and a link to a domain list.  The domain list is a text file with one domain per line, with blank lines and comments starting with `#` ignored.  
-
-You can use github raw links for this purpose.  For test purposes, you can use this link: `https://downloads.marginalia.nu/domain-list-test.txt`, which will create a crawl for a few
-of marignalia.nu's subdomains.
-
-If you aren't redirected there automatically, go back to the `New Crawl` page under Node N -> Actions.  Your new specification should now be listed.  
-
-Check the box next to it, and click `[Trigger New Crawl]`.
-
-<figure>
-    <img src="new_crawl2.png">
-    <figcaption>After having created a new crawl specification, the 'new crawl' view should look something like this.</figcaption>
-</figure>
+Select the option you prefer, and and click `[Trigger New Crawl]`.
 
 This will start the crawling process.  Crawling may take a while, depending on the size
 of the domain list and the size of the websites.  

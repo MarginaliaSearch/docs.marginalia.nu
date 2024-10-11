@@ -66,6 +66,7 @@ Of principal importance when configuring the system is `conf/properties/system.p
 | flyway.disable           | boolean | Disables automatic Flyway database migrations |
 | log4j2.configurationFile | string | log4j2-test.xml, log4j2-prod.xml |
 | system.conserveMemory    | boolean | Apply extra effort to conserve RAM. Useful on low-powered hardware |
+| system.profile           | boolean | Automatically generate JFR profiling data for the crawler, converter, and other batch processes | 
 
 ### Crawler Properties
 

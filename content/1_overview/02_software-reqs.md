@@ -16,5 +16,6 @@ The software requirements for running the Marginalia Search Engine are:
 To install tailwindcss
 
 1. Install NPM
-2. Run `npm install -D tailwindcss`
+2. Run `npm install tailwindcss @tailwindcss/cli`
 
+Note:  The JS ecosystem is quite prone to churn, and how to install this seems to change every once in a while.  If you're having npm related issues, consult https://tailwindcss.com/docs/installation/tailwind-cli

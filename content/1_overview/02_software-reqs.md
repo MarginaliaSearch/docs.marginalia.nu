@@ -11,11 +11,4 @@ The software requirements for running the Marginalia Search Engine are:
 * Java (use [sdkman](https://sdkman.io/) to install):
 * * JDK 22 for the latest released version of the system
 * * JDK 23 for the head of the git repository
-* Tailwindcss via NPM
-
-To install tailwindcss
-
-1. Install NPM
-2. Run `npm install tailwindcss @tailwindcss/cli`
-
-Note:  The JS ecosystem is quite prone to churn, and how to install this seems to change every once in a while.  If you're having npm related issues, consult https://tailwindcss.com/docs/installation/tailwind-cli
+* NPM

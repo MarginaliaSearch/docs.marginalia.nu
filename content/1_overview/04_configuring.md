@@ -87,6 +87,7 @@ Of principal importance when configuring the system is `conf/properties/system.p
 |-----------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | converter.sideloadThreshold | integer | Threshold value, in number of documents per domain, where a simpler processing method is used which uses less RAM.  10,000 is a good value for ~32GB RAM |
 | converter.poolSize | integer | Number of threads used by the converter process, should probably be in the range 2 - 32                                                                  |
+| converter.lenientProcessing | boolean | Disable language, quality and length checks |
 
 ### Marginalia Application Specific
 

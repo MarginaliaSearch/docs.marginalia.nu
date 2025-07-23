@@ -12,6 +12,8 @@ Each domain is assigned to a specific index node.  This is called node affinity.
 
 For each index node, two services are run, an index-service, and an executor-service.  The index-service is responsible for indexing data, and the executor-service is responsible for executing control tasks.  The two services are run in separate Docker containers, but are tightly coupled. 
 
+(Note: As of 2025-07-23, the executor service is removed and the index service has taken over its responsibilities)
+
 Nodes self-configure upon start-up.  The default docker-compose file will start with two nodes, but more can be added by editing the docker-compose file. 
 
 Index nodes are configurable in the control interface.  You can configure them to be included or excluded from answering queries, and whether to retain intermediate data or not. 

@@ -4,5 +4,18 @@
 {{ range (.Paginate ( first 50 .Data.Pages )).Pages }}
 {{ .Render "summary"}}
 {{ end }}
-{{ template "_internal/pagination.html" . }}
+{{ $pag := .Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<ul class="pagination">
+  {{ if $pag.HasPrev }}
+  <li><a href="{{ $pag.Prev.URL }}">« Prev</a></li>
+  {{ end }}
+  {{ range $pag.Pagers }}
+  <li{{ if eq . $pag }} class="active"{{ end }}><a href="{{ .URL }}">{{ .PageNumber }}</a></li>
+  {{ end }}
+  {{ if $pag.HasNext }}
+  <li><a href="{{ $pag.Next.URL }}">Next »</a></li>
+  {{ end }}
+</ul>
+{{ end }}
 {{- end -}}

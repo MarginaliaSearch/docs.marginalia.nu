@@ -9,6 +9,6 @@ The software requirements for running the Marginalia Search Engine are:
 * Docker ([install guides](https://docs.docker.com/engine/install/))
 * Docker Compose ([install guides](https://docs.docker.com/compose/install/))
 * Java (use [sdkman](https://sdkman.io/) to install):
-* * JDK 22 for the latest released version of the system
-* * JDK 23 for the head of the git repository
+* * JDK 25
 * NPM
+* liburing

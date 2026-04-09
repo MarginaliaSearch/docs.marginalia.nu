@@ -5,9 +5,18 @@ title: '3.1 Node Configuration'
 Under `Nodes -> Node N -> Configuration`, you will find a list of configuration options that can be set for each node.
 
 <figure>
-    <img src="node-config.webp" alt="Node Configuration" />
+    <img src="node-config.png" alt="Node Configuration" />
     <figcaption>Node Configuration Dialog</figcaption>
 </figure>
+
+
+### Profile
+
+The profile selection changes which capabilities are enabled for a node.  
+
+A system will typically have one or more `BATCH CRAWL` nodes, 0-1 `SIDELOAD` nodes, and 0-1 `REALTIME` nodes.
+
+The `REALTIME` profile allows sophisticated availability tracking, feed- and screenshot capture, daily index updates based on RSS feed changes. 
 
 ### Accept Queries
 

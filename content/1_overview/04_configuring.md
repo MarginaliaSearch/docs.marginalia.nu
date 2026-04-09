@@ -77,7 +77,8 @@ Of principal importance when configuring the system is `conf/properties/system.p
 | crawler.poolSize            | integer | Sets the number of threads used by the crawler, more is faster, but uses more RAM.  This should generably higher than the number of cores, since crawler threads idle most of the time. |
 | crawler.initialUrlsPerDomain | integer | Sets the initial number of URLs to crawl per domain  (when crawling from spec)                                                                                                          |
 | crawler.maxUrlsPerDomain     | integer | Sets the maximum number of URLs to crawl per domain  (when recrawling)                                                                                                                  |
-| crawler.minUrlsPerDomain     | integer | Sets the minimum number of URLs to crawl per domain  (when recrawling)                                                                                                                  |
+| crawler.midUrlsPerDomain     | integer | Sets breakpoint for when crawling set slows down per domain (when recrawling) |
+| crawler.minUrlsPerDomain     | integer | Sets the initial number of URLs to crawl per domain  (when recrawling)                                                                                                                  |
 | crawler.crawlSetGrowthFactor | double | If 100 documents were fetched last crawl, increase the goal to 100 x (this value) this time                                                                                             |
 | ip-blocklist.disabled       | boolean | Disables the IP blocklist                                                                                                                                                               |
 
@@ -85,9 +86,10 @@ Of principal importance when configuring the system is `conf/properties/system.p
 
 | flag                        | values     | description                                                                                                                                              |
 |-----------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| converter.sideloadThreshold | integer | Threshold value, in number of documents per domain, where a simpler processing method is used which uses less RAM.  10,000 is a good value for ~32GB RAM |
+| converter.sideloadThreshold | integer | Threshold value, in number of documents per domain, where a simpler processing method is used which uses less RAM.  2500 is the default, and good for ~32 GB of RAM. |
 | converter.poolSize | integer | Number of threads used by the converter process, should probably be in the range 2 - 32                                                                  |
 | converter.lenientProcessing | boolean | Disable language, quality and length checks |
+| converter.ignoreDomSampleData | boolean | Bypass DOM sample quality penalties |
 
 ### Loader Properties
 
@@ -111,5 +113,72 @@ guaranteed.
 | flag | values  | description                                                                                                                                                                          
 |--|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |system.noSunMiscUnsafe| boolean | Disable the use of sun.misc.Unsafe, use MemorySegment instead.  This is slower but has better memory safety |
-|system.languageDetectionModelVersion| integer | Choose language detection model. -1 to disable, 0 for default; 1 or 2 to select model between the old crude model and fasttext (which despite its name is slower but more accurate). |
-|system.noFlattenUnicode| boolean | if true, the search engine will attempt to support utf-8 keywords.  The index needs to be re-constructed after this has been switched.  Probably also needs new language models.     |
+
+
+
+## Language Support
+
+The search engine has first-class support for English, and experimental support for other languages.  Languages need to be configured and defined via an XML file `conf/languages.xml`.  A template can be found in [functions/language-processing/resources/languages-experimental.xml](https://github.com/MarginaliaSearch/MarginaliaSearch/blob/master/code/functions/language-processing/resources/languages-experimental.xml),  and a basic introduction in [functions/language-processing](https://github.com/MarginaliaSearch/MarginaliaSearch/tree/master/code/functions/language-processing).
+
+The simplest language configuration that can be implemented, that does no POS tagging or stemming, looks like
+
+```
+    <language isoCode="iso-code" name="Language Name">
+        <keywordHash algorithm="utf8" />
+        <stemmer algorithm="none" />
+        <sentenceDetector algorithm="opennlp"/>
+        <unicodeNormalization algorithm="minimal" />
+    </language>
+```
+
+There are more elaborate examples in the experimental config file linked above.  New POS tagging data can be acquired from the [rdrpostagger](https://github.com/datquocnguyen/rdrpostagger) repository, and will be downloaded automatically by the system.
+
+## NSFW Filter
+
+The system has support for NSFW filtering.   To enable this, first a machine learning model needs to be trained.  This can be done by running `./gradlew trainNsfwModel`.  This will take a few minutes, depending on your CPU.
+
+Once this is done, the model needs to be copied from `run/model/nsfw-model` in the Marginalia source directory, into `models/nsfw-model` in the deployment directory.
+
+Once installed, after restarting the system (or just restarting `query-service`), passing `&nsfw=2` to the API will filter out NSFW content. 
+
+## Headless Browser
+
+The system can optionally interact with a headless browser to capture a rendered DOM sample, and website screenshots.
+
+The docker image for this does not build by default (as this requires considerable resources and time),
+it must first be enabled via `gradle properties`, by setting `wantHeadless=true`. 
+After doing so, running `./gradlew docker` will create such an image along with images for the rest of the system's services.
+
+**Caveat:**
+Running a headless browser also requires vigilant patching and maintenance, as well as considerable RAM and CPU.
+Running `./gradlew code:tools:headless:docker` will recreate the docker image for the headless browser against the latest upstream image
+to keep you up to date with patches.
+
+To enable this integration, add a section like the below to the docker-compose file.
+
+```
+  headless:
+    image: "marginalia-headless"
+    container_name: "headless"
+    restart: always
+    networks:
+    - wmsa
+    env_file:
+    - "env/headless.env"
+```
+
+The healthcheck will restart the container daily to avoid runaway resource consumption. 
+
+Next add a line like the below to `env/headless.env`
+
+```
+TOKEN=my-secret-password
+```
+
+and a few lines like these to `conf/properties/system.properties`
+
+```
+live-capture.headless-uri=http://headless:3000/
+live-capture.headless-token=my-secret-password
+live-capture.headless-sample-threads=4
+```

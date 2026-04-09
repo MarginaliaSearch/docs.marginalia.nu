@@ -1,5 +1,5 @@
 ---
-title: '2.5 - WARC export' 
+title: '2.5 WARC export' 
 ---
 
 It is possible to configure the crawler to export its crawl data in a WARC format on top of the 

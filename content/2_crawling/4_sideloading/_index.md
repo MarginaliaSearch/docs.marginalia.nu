@@ -2,6 +2,9 @@
 title: '2.4. Sideloading'
 ---
 
+__Note: Before sideloading is possible, a node must be configured in `MIXED` or `SIDELOAD` mode__.
+See [Chapter 3.1](/3_configuration_options/1_node_configuration/) for more information.
+
 Apart from crawling, data can also be sideloaded into the system.
 
 A difference from the crawl work flow which we've seen before, which created a 
@@ -35,5 +38,5 @@ Sideloads are accessed through the `Node N-> Actions` menu in the control interf
 
 <figure>
 <img src="sideload_menu.png">
-<figcaption>The actions menu</figcaption>
+<figcaption>The actions menu (MIXED profile)</figcaption>
 </figure>
